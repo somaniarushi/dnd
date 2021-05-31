@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState} from 'react';
+import Style from 'styled-components';
+import ClassSelect from './components/ClassSelect.js';
+import RaceSelect from './components/RaceSelect.js'; 
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+  const [selection, setSelection] = useState([])
+  if (selection.length == 0) {
+    return <ClassSelect onConfirm={val => setSelection(selection + [val])}/>
+  }
+  else if (selection.length === 1) {
+    return <RaceSelect onConfirm={val => setSelection(selection + [val])}/>
+  }
 }
 
 export default App;
