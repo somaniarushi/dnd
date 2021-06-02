@@ -35,7 +35,7 @@ function App() {
   else {
     return (
       <div>
-        <ReactJson src={charBuilder(selection)} name="Character Sheet" indentWidth={8} displayDataTypes={false} displayObjectSize={false} collapseStringsAfterLength={50} style={{fontSize: "1.2em"}}/>
+        <ReactJson src={charBuilder(selection)} name={`Stats for ${selection.join(" ")}`} indentWidth={8} displayDataTypes={false} displayObjectSize={false} collapseStringsAfterLength={50} onEdit={(edit) => {}} style={{fontSize: "1.2em"}}/>
     </div>
     );
   }
