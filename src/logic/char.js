@@ -272,7 +272,7 @@ function handleWizard(data) {
 }
 
 function handleRace(charRace, data) {
-    if (charRace == "Elf") {
+    if (charRace === "Elf") {
         data["Abilities"]["DEX"]+=1
         data["Features"]["Darkvision"]="Can see 60ft in darkness."
         data["ProfSkills"].push("Perception")
