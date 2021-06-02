@@ -5,7 +5,7 @@ import RaceSelect from './components/RaceSelect.js';
 import BgSelect from './components/BackgroundSelect.js';
 import charBuilder from './logic/char.js';
 
-import {JsonTable} from 'react-json-to-html';
+// import {JsonTable} from 'react-json-to-html';
 import ReactJson from 'react-json-view'
 
 
