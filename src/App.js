@@ -5,6 +5,10 @@ import RaceSelect from './components/RaceSelect.js';
 import BgSelect from './components/BackgroundSelect.js';
 import charBuilder from './logic/char.js';
 
+import {JsonTable} from 'react-json-to-html';
+import ReactJson from 'react-json-view'
+
+
 function App() {
 
   const [selection, setSelection] = useState([])
@@ -31,9 +35,7 @@ function App() {
   else {
     return (
       <div>
-        <div>You have chosen: {selection.join(" ")}</div>
-        <div>Details: <pre>{JSON.stringify(charBuilder(selection), null, 2)}</pre></div>
-        <div>Retreived!</div>
+        <ReactJson src={charBuilder(selection)} name="Character Sheet" indentWidth={8} displayDataTypes={false} displayObjectSize={false} collapsed={true} collapseStringsAfterLength={50} style={{fontSize: "1.5em"}}/>
     </div>
     );
   }
