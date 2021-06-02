@@ -14,28 +14,37 @@ function App() {
   const [selection, setSelection] = useState([])
 
   if (selection.length === 0) {
-    return <ClassSelect onConfirm={val => setSelection(selection.concat(val))}/>
+    return (
+    <div style={{height: "100vh", display: "flex", justifyContent: "center", alignItems: "center", margin: "20px"}}>
+      <ClassSelect onConfirm={val => setSelection(selection.concat(val))}/>
+    </div>
+    )
   }
   else if (selection.length === 1){
     return (
-      <div>
-        <div>You have chosen: {selection.join(" ")}</div>
+      <div style={{height: "100vh", display: "flex", justifyContent: "center", alignItems: "center", margin: "20px"}}>
+        <div style={{maxWidth: "500px"}}>
+        <div>You have chosen: {selection.join(", ")}</div>
         <RaceSelect onConfirm={val => setSelection(selection.concat(val))}/>
-    </div>
+        </div>
+      </div>
     )
   }
   else if (selection.length === 2) {
     return (
-      <div>
-        <div>You have chosen: {selection.join(" ")}</div>
+      <div style={{height: "100vh", display: "flex", justifyContent: "center", alignItems: "center", margin: "20px"}}>
+      <div style={{maxWidth: "500px"}}>
+        <div>You have chosen: {selection.join(", ")}</div>
         <BgSelect onConfirm={val => setSelection(selection.concat(val))}/>
+    </div>
     </div>
     )
   }
   else {
     return (
       <div>
-        <ReactJson src={charBuilder(selection)} name={`Stats for ${selection.join(" ")}`} indentWidth={8} displayDataTypes={false} displayObjectSize={false} collapseStringsAfterLength={50} onEdit={(edit) => {}} style={{fontSize: "1.2em"}}/>
+        <ReactJson src={charBuilder(selection)} name={`Stats for Your ${selection.join(", ")}`} indentWidth={8} displayDataTypes={false} displayObjectSize={false} collapseStringsAfterLength={50} onEdit={(edit) => {}} 
+          style={{fontSize: "1.1em", fontFamily: 'Trebuchet MS', margin: "20px"}}/>
     </div>
     );
   }
